@@ -27,11 +27,11 @@ public protocol ScreenMatchable {
 
 extension ScreenMatchable {
     public func phone(_ value: Self) -> Self {
-        return match([.i4, .iSE, .i8, .i8P, .iX, .iXR, .iXMAX], value)
+        return UI_USER_INTERFACE_IDIOM() == .phone ? value : self
     }
     
     public func pad(_ value: Self) -> Self {
-        return match([.p97, .p105, .p11, .p129], value)
+        return UI_USER_INTERFACE_IDIOM() == .pad ? value : self
     }
     
     public func i4(_ value: Self) -> Self {

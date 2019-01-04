@@ -41,6 +41,12 @@ extension Screen {
         let width = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
         let height = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
         let scale = UIScreen.main.scale
+        let size = CGSize(width: width, height: height)
+        
+        // For iPad2
+        if size == Screen.p97.size {
+            return .p97
+        }
         
         let nativeSize = CGSize(width: width*scale, height: height*scale)
         
