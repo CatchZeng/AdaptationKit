@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        print(Screen.current)
+        print("".i4("this is i4").iX("this is ix").iXMAX("this is iXMAX"))
+        
+        let aa: Int = 12.adapt()
+        print(aa)
         
         return true
     }
