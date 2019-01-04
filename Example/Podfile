@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'AdaptationKit_Example' do
+  pod 'AdaptationKit', :path => '../'
+
+  target 'AdaptationKit_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick'
+    pod 'Nimble'
+  end
+end

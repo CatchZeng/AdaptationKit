@@ -1,0 +1,27 @@
+PODS:
+  - AdaptationKit (0.1.0)
+  - Nimble (7.3.1)
+  - Quick (1.3.2)
+
+DEPENDENCIES:
+  - AdaptationKit (from `../`)
+  - Nimble
+  - Quick
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  AdaptationKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AdaptationKit: 125523dfffabfa81111eceadef80da1cc604fec1
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+
+PODFILE CHECKSUM: 5e5ed049d038d31e9f169006557a281a742a6bec
+
+COCOAPODS: 1.5.2
