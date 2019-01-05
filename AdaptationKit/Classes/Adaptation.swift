@@ -13,6 +13,10 @@ public struct Calculator {
         let width = Double(min(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
         return origin * (width / base)
     }
+    
+    public static func adapt(_ origin: CGFloat) -> CGFloat {
+        return origin.adapt()
+    }
 }
 
 public protocol Adaptable {
