@@ -56,6 +56,16 @@ class ViewController: UIViewController {
 //        print(testInch)
         
 //        label.adaptFont = true
+        
+//        let inchRule = AdaptationRule(baseScreen: .i8)
+//        inchRule.set(screen: .i4, ratio: 0.5)
+//        inchRule.set(screen: .iXMAX, ratio: 1.3)
+//        AdaptationKit.set(inchRule: inchRule)
+//
+//        let fontRule = AdaptationRule(baseScreen: .i8)
+//        fontRule.set(screen: .i4, ratio: 0.6)
+//        fontRule.set(screen: .iXMAX, ratio: 1.5)
+//        AdaptationKit.set(inchRule: fontRule)
     }
 }
 

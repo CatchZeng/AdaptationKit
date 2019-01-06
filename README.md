@@ -113,6 +113,23 @@ constraint.adaptConstant = true
 
 ![Effect](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptConstantEffect.jpg)
 
+### AdaptationRule
+
+All of the above automatic calculations are based on the default rules(AdaptationRule.default). 
+If you want to customize the rules of the calculation, you can call the set method.
+
+```
+let inchRule = AdaptationRule(baseScreen: .i8)
+inchRule.set(screen: .i4, ratio: 0.5)
+inchRule.set(screen: .iXMAX, ratio: 1.3)
+AdaptationKit.set(inchRule: inchRule)
+
+let fontRule = AdaptationRule(baseScreen: .i8)
+fontRule.set(screen: .i4, ratio: 0.6)
+fontRule.set(screen: .iXMAX, ratio: 1.5)
+AdaptationKit.set(inchRule: fontRule)
+```
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
