@@ -7,14 +7,41 @@
 
 import Foundation
 
-public struct Calculator {
-    public static func adapt(_ origin: Double) -> Double {
-        let base = Double(Screen.i8.size.width)
-        let width = Double(min(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
-        return origin * (width / base)
+public class AdaptationKitConfig {
+    internal var baseScreen: Screen
+    internal var map = [Screen : Double]()
+    
+    public static let `default` = AdaptationKitConfig(baseScreen: .i8)
+    
+    public init(baseScreen: Screen) {
+        self.baseScreen = baseScreen
     }
     
-    public static func adapt(_ origin: CGFloat) -> CGFloat {
+    @discardableResult
+    public func set(screen: Screen, ratio: Double) -> AdaptationKitConfig {
+        map[screen] = ratio
+        return self
+    }
+}
+
+public struct AdaptationKit {
+    private static var config = AdaptationKitConfig.default
+    
+    public static func set(config: AdaptationKitConfig) {
+        self.config = config
+    }
+    
+    internal static func adapt(_ origin: Double) -> Double {
+        if let ratio = config.map[Screen.current] {
+            return origin * ratio
+        } else {
+            let base = Double(config.baseScreen.size.width)
+            let width = Double(min(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
+            return origin * (width / base)
+        }
+    }
+    
+    internal static func adapt(_ origin: CGFloat) -> CGFloat {
         return origin.adapt()
     }
 }
@@ -25,7 +52,7 @@ public protocol Adaptable {
 
 extension Double: Adaptable {
     public func adapt() -> Double {
-        return Calculator.adapt(self)
+        return AdaptationKit.adapt(self)
     }
 }
 
