@@ -48,7 +48,7 @@ label.numberOfLines = 0.pad(1).phone(2).iXMAX(3)
 let value = "0".match([.p97, .iX], "1")
 ```
 
-You can extension other types you need.
+Extend other types you need.
 
 ```swift
 extension YouType: ScreenMatchable {}
@@ -98,10 +98,9 @@ Support  UILabel,UITextView,UITextField.
 ```swift
 label.adaptFont = true // equal to  label.font = UIFont(name: label.font.fontName, size: font.pointSize.adaptFont())
 ```
-![IBInspectable](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptFont.png)
+![IBInspectable](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptFont.jpg)
 
-![iPhone](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptFont1.png)
-![iPad](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptFont2.png)
+![Effect](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptFontEffect.jpg)
 
 #### adaptConstant
 
