@@ -109,6 +109,9 @@ Calculate NSLayoutConstraint's constant automatically.
 ```swift
 constraint.adaptConstant = true
 ```
+![IBInspectable](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptConstant.jpg)
+
+![Effect](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptConstantEffect.jpg)
 
 ## Example
 
