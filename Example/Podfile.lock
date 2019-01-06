@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AdaptationKit: 125523dfffabfa81111eceadef80da1cc604fec1
+  AdaptationKit: 3fa0cd84d7fbc07d5d794a6351e31efe4bd7e740
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
 
