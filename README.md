@@ -118,7 +118,7 @@ constraint.adaptConstant = true
 All of the above automatic calculations are based on the default rules(AdaptationRule.default). 
 If you want to customize the rules of the calculation, you can call the set method.
 
-```
+```swift
 let inchRule = AdaptationRule(baseScreen: .i8)
 inchRule.set(screen: .i4, ratio: 0.5)
 inchRule.set(screen: .iXMAX, ratio: 1.3)
