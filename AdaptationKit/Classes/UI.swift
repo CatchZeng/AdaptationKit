@@ -12,7 +12,7 @@ extension UILabel {
         get { return self.adaptFont }
         set {
             guard newValue else { return }
-            font = UIFont(name: font.fontName, size: AdaptationKit.adapt(font.pointSize))
+            font = UIFont(name: font.fontName, size: AdaptationKit.adaptFont(font.pointSize))
         }
     }
 }
@@ -23,7 +23,7 @@ extension UITextView {
         set {
             guard newValue else { return }
             guard let font = font else { return }
-            self.font = UIFont(name: font.fontName, size: AdaptationKit.adapt(font.pointSize))
+            self.font = UIFont(name: font.fontName, size: AdaptationKit.adaptFont(font.pointSize))
         }
     }
 }
@@ -34,7 +34,7 @@ extension UITextField {
         set {
             guard newValue else { return }
             guard let font = font else { return }
-            self.font = UIFont(name: font.fontName, size: AdaptationKit.adapt(font.pointSize))
+            self.font = UIFont(name: font.fontName, size: AdaptationKit.adaptFont(font.pointSize))
         }
     }
 }
@@ -44,7 +44,7 @@ extension NSLayoutConstraint {
         get { return self.adaptConstant }
         set {
             guard newValue else { return }
-            constant = AdaptationKit.adapt(constant)
+            constant = AdaptationKit.adaptInch(constant)
         }
     }
 }

@@ -25,13 +25,34 @@ public class AdaptationKitConfig {
 }
 
 public struct AdaptationKit {
-    private static var config = AdaptationKitConfig.default
+    private static var inchConfig = AdaptationKitConfig.default
+    private static var fontConfig = AdaptationKitConfig.default
     
-    public static func set(config: AdaptationKitConfig) {
-        self.config = config
+    public static func set(inchConfig: AdaptationKitConfig) {
+        self.inchConfig = inchConfig
     }
     
-    internal static func adapt(_ origin: Double) -> Double {
+    public static func set(fontConfig: AdaptationKitConfig) {
+        self.fontConfig = fontConfig
+    }
+    
+    internal static func adaptInch(_ origin: Double) -> Double {
+        return adapt(origin, config: inchConfig)
+    }
+    
+    internal static func adaptFont(_ origin: Double) -> Double {
+        return adapt(origin, config: fontConfig)
+    }
+    
+    internal static func adaptInch(_ origin: CGFloat) -> CGFloat {
+        return origin.adapt()
+    }
+    
+    internal static func adaptFont(_ origin: CGFloat) -> CGFloat {
+        return origin.adaptFont()
+    }
+    
+    private static func adapt(_ origin: Double, config: AdaptationKitConfig) -> Double {
         if let ratio = config.map[Screen.current] {
             return origin * ratio
         } else {
@@ -39,10 +60,6 @@ public struct AdaptationKit {
             let width = Double(min(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
             return origin * (width / base)
         }
-    }
-    
-    internal static func adapt(_ origin: CGFloat) -> CGFloat {
-        return origin.adapt()
     }
 }
 
@@ -52,7 +69,11 @@ public protocol Adaptable {
 
 extension Double: Adaptable {
     public func adapt() -> Double {
-        return AdaptationKit.adapt(self)
+        return AdaptationKit.adaptInch(self)
+    }
+    
+    public func adaptFont() -> Double {
+        return AdaptationKit.adaptFont(self)
     }
 }
 
@@ -61,12 +82,22 @@ extension BinaryFloatingPoint {
         let temp = Double("\(self)") ?? 0
         return T(temp.adapt())
     }
+    
+    public func adaptFont<T>() -> T where T : BinaryFloatingPoint {
+        let temp = Double("\(self)") ?? 0
+        return T(temp.adaptFont())
+    }
 }
 
 extension BinaryInteger {
     public func adapt<T>() -> T where T : BinaryInteger {
         let temp = Double("\(self)") ?? 0
         return T(temp.adapt())
+    }
+    
+    public func adaptFont<T>() -> T where T : BinaryInteger {
+        let temp = Double("\(self)") ?? 0
+        return T(temp.adaptFont())
     }
 }
 
