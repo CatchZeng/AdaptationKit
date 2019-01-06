@@ -8,7 +8,7 @@
 import Foundation
 
 extension UILabel {
-    @IBInspectable var adaptFont: Bool {
+    @IBInspectable public var adaptFont: Bool {
         get { return self.adaptFont }
         set {
             guard newValue else { return }
@@ -18,7 +18,7 @@ extension UILabel {
 }
 
 extension UITextView {
-    @IBInspectable var adaptFont: Bool {
+    @IBInspectable public var adaptFont: Bool {
         get { return self.adaptFont }
         set {
             guard newValue else { return }
@@ -29,7 +29,7 @@ extension UITextView {
 }
 
 extension UITextField {
-    @IBInspectable var adaptFont: Bool {
+    @IBInspectable public var adaptFont: Bool {
         get { return self.adaptFont }
         set {
             guard newValue else { return }
@@ -40,11 +40,11 @@ extension UITextField {
 }
 
 extension NSLayoutConstraint {
-    @IBInspectable var adaptConstant: Bool {
+    @IBInspectable public var adaptConstant: Bool {
         get { return self.adaptConstant }
         set {
             guard newValue else { return }
             constant = AdaptationKit.adaptInch(constant)
-        }
+        } 
     }
 }

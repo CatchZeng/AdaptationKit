@@ -7,21 +7,13 @@
 //
 
 import UIKit
-import AdaptationKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        print("".i4("this is i4").iX("this is ix").iXMAX("this is iXMAX"))
-        
-        let aa: Int = 12.adaptInch()
-        print(aa)
-        
         return true
     }
 

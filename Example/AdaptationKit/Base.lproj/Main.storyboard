@@ -37,9 +37,13 @@
                             <constraint firstItem="3HF-P5-c0I" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="JCY-Za-Cse"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="3HF-P5-c0I" id="enj-FW-vHl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1348" y="-145"/>
         </scene>
     </scenes>
 </document>

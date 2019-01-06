@@ -75,6 +75,38 @@ class AdaptationSpec: QuickSpec {
                     }
                 }
             })
+            
+            context("Double", {
+                it("Check adapt method") {
+                    let value = 12.0≈
+                    switch Screen.current {
+                    case .unknown:
+                        expect(value).to(equal(12))
+                    case .i4:
+                        expect(value).to(beCloseTo(10.24, within: 0.01))
+                    case .iSE:
+                        expect(value).to(beCloseTo(10.24, within: 0.01))
+                    case .i8:
+                        expect(value).to(equal(12))
+                    case .i8P:
+                        expect(value).to(beCloseTo(13.248, within: 0.001))
+                    case .iX:
+                        expect(value).to(equal(12))
+                    case .iXR:
+                        expect(value).to(beCloseTo(13.248, within: 0.001))
+                    case .iXMAX:
+                        expect(value).to(beCloseTo(13.248, within: 0.001))
+                    case .p97:
+                        expect(value).to(beCloseTo(24.576, within: 0.001))
+                    case .p105:
+                        expect(value).to(beCloseTo(26.688, within: 0.001))
+                    case .p11:
+                        expect(value).to(beCloseTo(26.688, within: 0.001))
+                    case .p129:
+                        expect(value).to(beCloseTo(32.768, within: 0.001))
+                    }
+                }
+            })
         }
     }
 }
