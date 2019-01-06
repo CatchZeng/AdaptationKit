@@ -6,6 +6,13 @@
 
 📱 screen auto adaptation solution.
 
+## Features
+
+- [x] Quickly adapt to various screens.
+- [x] Calculate inch & font  automatically.
+- [x] Support operator.
+- [x] Support IBInspectable.
+- [x] Customize adaptation rules.
 
 ## Usage
 
