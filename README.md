@@ -26,6 +26,8 @@ import AdaptationKit
 
 Quickly adapt to various screens. Support Int,Float,Double,String,CGRect,CGSize,CGFloat,CGPoint,UIEdgeInsets.
 
+![Effect](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/inch.jpg)
+
 ```swift
 label.text = "I am " +
 "unkown screen"
@@ -34,7 +36,7 @@ label.text = "I am " +
 .i8P("iPhone 8Plus like screen.")
 .iX("iPhone X like screen.")
 .iXR("iPhone XR like screen.")
-.iXMAX("iPhone XMAX like screen.")
+.iXMAX("iPhone XS MAX like screen.")
 .p97("iPad 9.7 like screen.")
 .p105("iPad 10.5 like screen.")
 .p11("iPad 11 like screen.")
