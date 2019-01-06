@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("".i4("this is i4").iX("this is ix").iXMAX("this is iXMAX"))
         
-        let aa: Int = 12.adapt()
+        let aa: Int = 12.adaptInch()
         print(aa)
         
         return true

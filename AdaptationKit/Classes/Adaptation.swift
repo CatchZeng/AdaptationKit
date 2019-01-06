@@ -7,56 +7,56 @@
 
 import Foundation
 
-public class AdaptationKitConfig {
+public class AdaptationRule {
     internal var baseScreen: Screen
     internal var map = [Screen : Double]()
     
-    public static let `default` = AdaptationKitConfig(baseScreen: .i8)
+    public static let `default` = AdaptationRule(baseScreen: .i8)
     
     public init(baseScreen: Screen) {
         self.baseScreen = baseScreen
     }
     
     @discardableResult
-    public func set(screen: Screen, ratio: Double) -> AdaptationKitConfig {
+    public func set(screen: Screen, ratio: Double) -> AdaptationRule {
         map[screen] = ratio
         return self
     }
 }
 
 public struct AdaptationKit {
-    private static var inchConfig = AdaptationKitConfig.default
-    private static var fontConfig = AdaptationKitConfig.default
+    private static var inchRule = AdaptationRule.default
+    private static var fontRule = AdaptationRule.default
     
-    public static func set(inchConfig: AdaptationKitConfig) {
-        self.inchConfig = inchConfig
+    public static func set(inchRule: AdaptationRule) {
+        self.inchRule = inchRule
     }
     
-    public static func set(fontConfig: AdaptationKitConfig) {
-        self.fontConfig = fontConfig
+    public static func set(fontRule: AdaptationRule) {
+        self.fontRule = fontRule
     }
     
     internal static func adaptInch(_ origin: Double) -> Double {
-        return adapt(origin, config: inchConfig)
+        return adapt(origin, rule: inchRule)
     }
     
     internal static func adaptFont(_ origin: Double) -> Double {
-        return adapt(origin, config: fontConfig)
+        return adapt(origin, rule: fontRule)
     }
     
     internal static func adaptInch(_ origin: CGFloat) -> CGFloat {
-        return origin.adapt()
+        return origin.adaptInch()
     }
     
     internal static func adaptFont(_ origin: CGFloat) -> CGFloat {
         return origin.adaptFont()
     }
     
-    private static func adapt(_ origin: Double, config: AdaptationKitConfig) -> Double {
-        if let ratio = config.map[Screen.current] {
+    private static func adapt(_ origin: Double, rule: AdaptationRule) -> Double {
+        if let ratio = rule.map[Screen.current] {
             return origin * ratio
         } else {
-            let base = Double(config.baseScreen.size.width)
+            let base = Double(rule.baseScreen.size.width)
             let width = Double(min(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
             return origin * (width / base)
         }
@@ -64,11 +64,12 @@ public struct AdaptationKit {
 }
 
 public protocol Adaptable {
-    func adapt() -> Self
+    func adaptInch() -> Self
+    func adaptFont() -> Self
 }
 
 extension Double: Adaptable {
-    public func adapt() -> Double {
+    public func adaptInch() -> Double {
         return AdaptationKit.adaptInch(self)
     }
     
@@ -78,9 +79,9 @@ extension Double: Adaptable {
 }
 
 extension BinaryFloatingPoint {
-    public func adapt<T>() -> T where T : BinaryFloatingPoint {
+    public func adaptInch<T>() -> T where T : BinaryFloatingPoint {
         let temp = Double("\(self)") ?? 0
-        return T(temp.adapt())
+        return T(temp.adaptInch())
     }
     
     public func adaptFont<T>() -> T where T : BinaryFloatingPoint {
@@ -90,9 +91,9 @@ extension BinaryFloatingPoint {
 }
 
 extension BinaryInteger {
-    public func adapt<T>() -> T where T : BinaryInteger {
+    public func adaptInch<T>() -> T where T : BinaryInteger {
         let temp = Double("\(self)") ?? 0
-        return T(temp.adapt())
+        return T(temp.adaptInch())
     }
     
     public func adaptFont<T>() -> T where T : BinaryInteger {
@@ -105,23 +106,44 @@ extension BinaryInteger {
 
 postfix operator ~
 public postfix func ~ (value: CGFloat) -> CGFloat {
-    return value.adapt()
+    return value.adaptInch()
 }
 
 public postfix func ~ (value: Double) -> Double {
-    return value.adapt()
+    return value.adaptInch()
 }
 
 public postfix func ~ (value: Float) -> Float {
-    return value.adapt()
+    return value.adaptInch()
 }
 
 public postfix func ~ (value: Int) -> Int {
-    return value.adapt()
+    return value.adaptInch()
 }
 
 public postfix func ~ (value: UInt) -> UInt {
-    return value.adapt()
+    return value.adaptInch()
+}
+
+postfix operator ≈
+public postfix func ≈ (value: CGFloat) -> CGFloat {
+    return value.adaptFont()
+}
+
+public postfix func ≈ (value: Double) -> Double {
+    return value.adaptFont()
+}
+
+public postfix func ≈ (value: Float) -> Float {
+    return value.adaptFont()
+}
+
+public postfix func ≈ (value: Int) -> Int {
+    return value.adaptFont()
+}
+
+public postfix func ≈ (value: UInt) -> UInt {
+    return value.adaptFont()
 }
 
 

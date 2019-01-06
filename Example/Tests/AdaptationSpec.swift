@@ -16,7 +16,7 @@ class AdaptationSpec: QuickSpec {
         describe("Adaptation") {
             context("Int", {
                 it("Check adapt method") {
-                    let value: Int = 12.adapt()
+                    let value: Int = 12.adaptInch()
                     switch Screen.current {
                     case .unknown:
                         expect(value).to(equal(12))
