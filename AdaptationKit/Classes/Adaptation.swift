@@ -42,3 +42,28 @@ extension BinaryInteger {
         return T(temp.adapt())
     }
 }
+
+// MARK: operator
+
+postfix operator ~
+public postfix func ~ (value: CGFloat) -> CGFloat {
+    return value.adapt()
+}
+
+public postfix func ~ (value: Double) -> Double {
+    return value.adapt()
+}
+
+public postfix func ~ (value: Float) -> Float {
+    return value.adapt()
+}
+
+public postfix func ~ (value: Int) -> Int {
+    return value.adapt()
+}
+
+public postfix func ~ (value: UInt) -> UInt {
+    return value.adapt()
+}
+
+
