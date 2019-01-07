@@ -10,7 +10,7 @@
 ## Features
 
 - [x] Quickly adapt to various screens.
-- [x] Calculate inch & font  automatically.
+- [x] Calculate inch & font automatically.
 - [x] Support operator.
 - [x] Support IBInspectable.
 - [x] Customize adaptation rules.
@@ -66,7 +66,7 @@ extension YouType: ScreenMatchable {}
 
 ### Adaptable
 
-Calculate inch & font  automatically.
+Calculate inch & font automatically.
 
 ```swift
 /*
@@ -103,11 +103,12 @@ label.font = UIFont(name: label.font.fontName, size: 12.0≈) 
 
 #### adaptFont
 
-Support  UILabel,UITextView,UITextField.
+Support UILabel,UITextView,UITextField.
 
 ```swift
 label.adaptFont = true // equal to  label.font = UIFont(name: label.font.fontName, size: font.pointSize.adaptFont())
 ```
+
 ![IBInspectable](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptFont.jpg)
 
 ![Effect](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptFontEffect.jpg)
@@ -119,13 +120,14 @@ Calculate NSLayoutConstraint's constant automatically.
 ```swift
 constraint.adaptConstant = true
 ```
+
 ![IBInspectable](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptConstant.jpg)
 
 ![Effect](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptConstantEffect.jpg)
 
 ### AdaptationRule
 
-All of the above automatic calculations are based on the default rules(AdaptationRule.default). 
+All of the above automatic calculations are based on the default rules(AdaptationRule.default).
 If you want to customize the rules of the calculation, you can call the set method.
 
 ```swift
@@ -137,13 +139,12 @@ AdaptationKit.set(inchRule: inchRule)
 let fontRule = AdaptationRule(baseScreen: .i8)
 fontRule.set(screen: .i4, ratio: 0.6)
 fontRule.set(screen: .iXMAX, ratio: 1.5)
-AdaptationKit.set(inchRule: fontRule)
+AdaptationKit.set(fontRule: fontRule)
 ```
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 
 ## Installation
 
