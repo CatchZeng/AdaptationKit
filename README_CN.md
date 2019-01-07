@@ -5,21 +5,19 @@
 [![License](https://img.shields.io/cocoapods/l/AdaptationKit.svg?style=flat)](https://cocoapods.org/pods/AdaptationKit)
 [![Platform](https://img.shields.io/cocoapods/p/AdaptationKit.svg?style=flat)](https://cocoapods.org/pods/AdaptationKit)
 
-📱 screen auto adaptation solution.
+📱 屏幕自动适配方案。
 
-[中文请戳](https://github.com/CatchZeng/AdaptationKit/blob/master/README_CN.md)
+## 特性
 
-## Features
+- [x] 快速适配各种不同尺寸屏幕
+- [x] 自动计算尺寸和字体大小
+- [x] 支持便捷操作符(~ ，≈)
+- [x] 支持 IBInspectable
+- [x] 自定义适配规则
 
-- [x] Quickly adapt to various screens.
-- [x] Calculate inch & font automatically.
-- [x] Support operator.
-- [x] Support IBInspectable.
-- [x] Customize adaptation rules.
+## 使用方法
 
-## Usage
-
-Import the framework firstly.
+使用前先导入 AdaptationKit。
 
 ```swift
 import AdaptationKit
@@ -27,7 +25,7 @@ import AdaptationKit
 
 ### ScreenMatchable
 
-Quickly adapt to various screens. Support Int,Float,Double,String,CGRect,CGSize,CGFloat,CGPoint,UIEdgeInsets.
+快速适配各种不同尺寸屏幕。支持 Int,Float,Double,String,CGRect,CGSize,CGFloat,CGPoint,UIEdgeInsets。
 
 ![Effect](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/inch.jpg)
 
@@ -46,15 +44,15 @@ label.text = "I am " +
 .p129("iPad 12.9 like screen.")
 
 /*
-* default numberOfLines = 0
+* 默认 numberOfLines = 0
 * iPad numberOfLines = 1
-* iPhone(In addition to iPhone XS Max) numberOfLines = 2
+* iPhone(除了 iPhone XS Max 以外) numberOfLines = 2
 * iPhone XS Max numberOfLines = 3
 */
 label.numberOfLines = 0.pad(1).phone(2).iXMAX(3)
 
 /*
-* default value = "0"
+* 默认 value = "0"
 * iPad 9.7 & iPhone X value = "1"
 */
 let value = "0".match([.p97, .iX], "1")
@@ -68,11 +66,11 @@ extension YouType: ScreenMatchable {}
 
 ### Adaptable
 
-Calculate inch & font automatically.
+自动计算尺寸和字体大小。
 
 ```swift
 /*
-* default(iPhone 8) width = 12.0
+* 默认(iPhone 8) width = 12.0
 * iPhone 4 width = 10.24
 * iPhone X MAX  width = 13.248
 * ...
@@ -82,7 +80,7 @@ testView.snp.makeConstraints { (make) in
 }
 
 /*
-* default(iPhone 8) size = 12.0
+* 默认(iPhone 8) size = 12.0
 * iPhone 4 size = 10.24
 * iPhone X MAX  size = 13.248
 * ...
@@ -90,9 +88,9 @@ testView.snp.makeConstraints { (make) in
 label.font = UIFont(name: label.font.fontName, size: 12.0.adaptFont())
 
 
-// operator
-// ~ means adaptInch()
-// ≈ means adaptFont()
+// 便捷操作符
+// ~ 相当于 adaptInch()
+// ≈ 相当于 adaptFont()
 
 testView.snp.makeConstraints { (make) in
     make.width.equalTo(12~)
@@ -105,10 +103,10 @@ label.font = UIFont(name: label.font.fontName, size: 12.0≈) 
 
 #### adaptFont
 
-Support UILabel,UITextView,UITextField.
+支持 UILabel,UITextView,UITextField。
 
 ```swift
-label.adaptFont = true // equal to  label.font = UIFont(name: label.font.fontName, size: font.pointSize.adaptFont())
+label.adaptFont = true // 相当于  label.font = UIFont(name: label.font.fontName, size: font.pointSize.adaptFont())
 ```
 
 ![IBInspectable](https://raw.githubusercontent.com/CatchZeng/AdaptationKit/master/images/adaptFont.jpg)
@@ -117,7 +115,7 @@ label.adaptFont = true // equal to  label.font = UIFont(name: label.font.fontNam
 
 #### adaptConstant
 
-Calculate NSLayoutConstraint's constant automatically.
+自动计算 NSLayoutConstraint 的 constant 值。
 
 ```swift
 constraint.adaptConstant = true
@@ -129,8 +127,9 @@ constraint.adaptConstant = true
 
 ### AdaptationRule
 
-All of the above automatic calculations are based on the default rules(AdaptationRule.default).
-If you want to customize the rules of the calculation, you can call the set method.
+以上所有的自动计算都是基于默认的规则(AdaptationRule.default)。
+
+如果默认的规则不满足需求，你可以自定义规则。
 
 ```swift
 let inchRule = AdaptationRule(baseScreen: .i8)
@@ -144,20 +143,19 @@ fontRule.set(screen: .iXMAX, ratio: 1.5)
 AdaptationKit.set(fontRule: fontRule)
 ```
 
-## Example
+## 实例
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Clone 本项目, 在 Example 项目中执行 `pod install`，然后 run 项目即可。
 
-## Installation
+## 安装
 
-AdaptationKit is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+AdaptationKit 可通过 [CocoaPods](https://cocoapods.org) 安装。
 
 ```ruby
 pod 'AdaptationKit'
 ```
 
-## Author
+## 作者
 
 catchzeng, 891793848@qq.com
 
