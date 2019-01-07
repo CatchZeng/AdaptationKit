@@ -58,7 +58,7 @@ label.numberOfLines = 0.pad(1).phone(2).iXMAX(3)
 let value = "0".match([.p97, .iX], "1")
 ```
 
-Extend other types you need.
+你可以扩展自己需要的类型。
 
 ```swift
 extension YouType: ScreenMatchable {}

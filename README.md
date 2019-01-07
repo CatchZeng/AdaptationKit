@@ -130,6 +130,7 @@ constraint.adaptConstant = true
 ### AdaptationRule
 
 All of the above automatic calculations are based on the default rules(AdaptationRule.default).
+
 If you want to customize the rules of the calculation, you can call the set method.
 
 ```swift
