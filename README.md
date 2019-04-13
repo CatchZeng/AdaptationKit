@@ -1,6 +1,6 @@
 # AdaptationKit
 
-![Swift](https://img.shields.io/badge/Swift-4.2-green.svg)
+![Swift](https://img.shields.io/badge/Swift-5.0-green.svg)
 [![Version](https://img.shields.io/cocoapods/v/AdaptationKit.svg?style=flat)](https://cocoapods.org/pods/AdaptationKit)
 [![License](https://img.shields.io/cocoapods/l/AdaptationKit.svg?style=flat)](https://cocoapods.org/pods/AdaptationKit)
 [![Platform](https://img.shields.io/cocoapods/p/AdaptationKit.svg?style=flat)](https://cocoapods.org/pods/AdaptationKit)

@@ -1,7 +1,7 @@
 PODS:
-  - AdaptationKit (0.1.0)
-  - Nimble (7.3.1)
-  - Quick (1.3.2)
+  - AdaptationKit (0.1.1)
+  - Nimble (8.0.1)
+  - Quick (2.0.0)
 
 DEPENDENCIES:
   - AdaptationKit (from `../`)
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AdaptationKit: 3fa0cd84d7fbc07d5d794a6351e31efe4bd7e740
-  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
-  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  AdaptationKit: af5db10bccb1e032a5261e049aa30f11f5c11bf0
+  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
+  Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
 
-PODFILE CHECKSUM: 5e5ed049d038d31e9f169006557a281a742a6bec
+PODFILE CHECKSUM: 3d1dab3ef08bacf588d7ac6bc918142e35e3f4a1
 
 COCOAPODS: 1.5.3

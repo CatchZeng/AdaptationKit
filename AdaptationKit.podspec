@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AdaptationKit'
-  s.version          = '0.1.0'
-  s.swift_version    = '4.2'
+  s.version          = '0.1.1'
+  s.swift_version    = '5.0'
   s.summary          = 'auto adaptation solution.'
   s.description      = '📱 screen auto adaptation solution.'
   s.homepage         = 'https://github.com/catchzeng/AdaptationKit'
